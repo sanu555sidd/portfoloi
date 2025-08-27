@@ -1,0 +1,135 @@
+/* ===== NOTIFICATION STYLES ===== */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: var(--light-color);
+    border-radius: 10px;
+    padding: 15px 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    z-index: 10000;
+    transform: translateX(400px);
+    opacity: 0;
+    transition: all 0.3s ease;
+    max-width: 350px;
+    border-left: 4px solid var(--primary-color);
+}
+
+.notification.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.notification-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-right: 30px;
+}
+
+.notification-content i {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+}
+
+.notification-content span {
+    color: var(--text-color);
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.notification-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1rem;
+    color: var(--text-color-light);
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    transition: var(--transition);
+}
+
+.notification-close:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    color: var(--text-color);
+}
+
+/* Notification types */
+.notification-success {
+    border-left-color: #28a745;
+}
+
+.notification-success .notification-content i {
+    color: #28a745;
+}
+
+.notification-error {
+    border-left-color: #dc3545;
+}
+
+.notification-error .notification-content i {
+    color: #dc3545;
+}
+
+.notification-info {
+    border-left-color: #17a2b8;
+}
+
+.notification-info .notification-content i {
+    color: #17a2b8;
+}
+
+/* Dark mode notifications */
+[data-theme="dark"] .notification {
+    background-color: #1a1a1a;
+    border-left-color: var(--primary-color);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(114, 137, 218, 0.3);
+}
+
+[data-theme="dark"] .notification-content span {
+    color: #ffffff;
+}
+
+[data-theme="dark"] .notification-close {
+    color: #cccccc;
+}
+
+[data-theme="dark"] .notification-close:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+/* Dark mode notification type colors */
+[data-theme="dark"] .notification-success {
+    background-color: #1a1a1a;
+    border-left-color: #28a745;
+}
+
+[data-theme="dark"] .notification-error {
+    background-color: #1a1a1a;
+    border-left-color: #dc3545;
+}
+
+[data-theme="dark"] .notification-info {
+    background-color: #1a1a1a;
+    border-left-color: #17a2b8;
+}
+
+/* Mobile notifications */
+@media (max-width: 768px) {
+    .notification {
+        top: 10px;
+        right: 10px;
+        left: 10px;
+        max-width: none;
+        transform: translateY(-100px);
+    }
+    
+    .notification.show {
+        transform: translateY(0);
+    }
+}
